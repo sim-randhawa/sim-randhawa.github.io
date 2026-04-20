@@ -5,168 +5,268 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Simran Randhawa — Data Analyst Portfolio</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Segoe UI', sans-serif; color: #333; background: #f9f9f9; }
-    
-    header {
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      color: white;
-      padding: 60px 40px;
-      text-align: center;
-    }
-    header h1 { font-size: 2.5em; margin-bottom: 10px; }
-    header p { font-size: 1.1em; opacity: 0.85; margin-bottom: 6px; }
-    header .links a {
-      color: #a8d8ea;
-      text-decoration: none;
-      margin: 0 12px;
-      font-size: 0.95em;
-    }
-    header .links a:hover { text-decoration: underline; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: #fafaf8; color: #1a1a1a; line-height: 1.6; }
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 760px; margin: 0 auto; padding: 0 32px; }
 
-    .skills {
-      background: white;
-      padding: 40px;
-      text-align: center;
-      border-bottom: 1px solid #eee;
-    }
-    .skills h2 { margin-bottom: 20px; color: #1a1a2e; }
-    .skill-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
-    .skill-tags span {
-      background: #1a1a2e;
-      color: white;
-      padding: 6px 16px;
-      border-radius: 20px;
-      font-size: 0.9em;
-    }
+    nav { padding: 18px 0; border-bottom: 1px solid #e8e4de; }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .nav-name { font-size: 15px; font-family: Georgia, serif; color: #1a1a1a; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a { font-size: 13px; color: #6b6b6b; }
+    .nav-links a:hover { color: #1a1a1a; }
 
-    .projects { padding: 50px 40px; max-width: 1100px; margin: 0 auto; }
-    .projects h2 { font-size: 1.8em; margin-bottom: 30px; color: #1a1a2e; text-align: center; }
+    .hero { padding: 52px 0 40px; border-bottom: 1px solid #e8e4de; }
+    .hero-eyebrow { font-size: 11px; color: #8b7355; letter-spacing: 1.8px; text-transform: uppercase; margin-bottom: 14px; }
+    .hero h1 { font-size: 40px; font-weight: normal; font-family: Georgia, serif; line-height: 1.2; color: #1a1a1a; margin-bottom: 16px; letter-spacing: -0.3px; }
+    .hero-bio { font-size: 15px; line-height: 1.8; color: #4a4a4a; max-width: 580px; margin-bottom: 24px; }
+    .hero-bio strong { color: #1a1a1a; font-weight: 500; }
+    .hero-cta { display: flex; gap: 10px; flex-wrap: wrap; }
+    .btn-primary { background: #1a1a1a; color: #fafaf8; padding: 9px 20px; font-size: 13px; letter-spacing: 0.2px; border: none; cursor: pointer; display: inline-block; }
+    .btn-secondary { background: transparent; color: #1a1a1a; padding: 9px 20px; font-size: 13px; border: 1px solid #c8c4bc; cursor: pointer; display: inline-block; }
+    .btn-secondary:hover { border-color: #1a1a1a; }
 
-    .project-card {
-      background: white;
-      border-radius: 10px;
-      padding: 30px;
-      margin-bottom: 30px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      border-left: 5px solid #1a1a2e;
-    }
-    .project-card h3 { font-size: 1.3em; margin-bottom: 8px; color: #1a1a2e; }
-    .project-card .tags { margin: 10px 0; }
-    .project-card .tags span {
-      background: #e8f4f8;
-      color: #1a1a2e;
-      padding: 3px 10px;
-      border-radius: 12px;
-      font-size: 0.82em;
-      margin-right: 6px;
-    }
-    .project-card p { color: #555; line-height: 1.6; margin-bottom: 14px; }
-    .project-card a {
-      display: inline-block;
-      background: #1a1a2e;
-      color: white;
-      padding: 8px 20px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-size: 0.9em;
-    }
-    .project-card a:hover { background: #16213e; }
+    .section { padding: 36px 0; border-bottom: 1px solid #e8e4de; }
+    .section:last-of-type { border-bottom: none; }
+    .section-label { font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: #8b7355; margin-bottom: 20px; }
 
-    footer {
-      background: #1a1a2e;
-      color: #aaa;
-      text-align: center;
-      padding: 24px;
-      font-size: 0.9em;
-    }
+    .skills-row { display: flex; flex-wrap: wrap; gap: 7px; }
+    .skill-chip { font-size: 13px; color: #4a4a4a; background: #f0ede8; padding: 4px 12px; }
+
+    .project { padding: 28px 0; border-top: 1px solid #e8e4de; }
+    .project:first-of-type { border-top: none; padding-top: 0; }
+    .proj-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; flex-wrap: wrap; }
+    .proj-num { font-size: 11px; color: #8b7355; letter-spacing: 1px; }
+    .proj-tool { font-size: 11px; color: #6b6b6b; background: #f0ede8; padding: 2px 8px; }
+    .project h3 { font-size: 19px; font-weight: normal; font-family: Georgia, serif; color: #1a1a1a; margin-bottom: 8px; line-height: 1.3; }
+    .proj-stats { display: flex; gap: 24px; margin: 10px 0 12px; flex-wrap: wrap; }
+    .proj-stat .n { font-size: 22px; font-family: Georgia, serif; color: #1a1a1a; }
+    .proj-stat .l { font-size: 11px; color: #8b8b8b; letter-spacing: 0.4px; margin-top: 1px; }
+    .project p { font-size: 14px; line-height: 1.8; color: #4a4a4a; margin-bottom: 12px; }
+    .proj-finding { border-left: 2px solid #8b7355; padding: 8px 14px; margin: 10px 0 12px; background: #f7f4ef; }
+    .proj-finding p { font-size: 13px; color: #4a4a4a; margin: 0; font-style: italic; }
+    .proj-finding strong { color: #8b7355; font-style: normal; font-weight: 500; }
+
+    .plots-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 12px 0; }
+    .plot-img { width: 100%; border-radius: 4px; border: 1px solid #e8e4de; display: block; }
+    .plot-caption { font-size: 11px; color: #8b8b8b; text-align: center; margin-top: 4px; }
+
+    .proj-link { font-size: 13px; color: #8b7355; background: none; border: none; padding: 0; cursor: pointer; letter-spacing: 0.2px; display: inline-block; }
+    .proj-link:hover { color: #1a1a1a; }
+
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .about-item h4 { font-size: 11px; color: #8b7355; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .about-item ul { list-style: none; padding: 0; }
+    .about-item ul li { font-size: 14px; line-height: 1.8; color: #4a4a4a; }
+    .about-item ul li::before { content: "— "; color: #8b7355; }
+
+    footer { padding: 24px 0; }
+    footer p { font-size: 12px; color: #8b8b8b; }
   </style>
 </head>
 <body>
+<div class="wrap">
 
-<header>
-  <h1>Simran Randhawa</h1>
-  <p>MS Student · Johns Hopkins Bloomberg School of Public Health</p>
-  <p>Computational biology · Clinical data analysis · Tumor microenvironment research</p>
-  <div class="links" style="margin-top: 16px;">
-    <a href="https://www.linkedin.com/in/simranrandhawa20">LinkedIn</a>
-    <a href="https://github.com/sim-randhawa">GitHub</a>
-    <a href="mailto:simranrandhawa20@gmail.com">Email</a>
-  </div>
-</header>
+  <nav>
+    <div class="nav-inner">
+      <span class="nav-name">Simran Randhawa</span>
+      <div class="nav-links">
+        <a href="https://www.linkedin.com/in/simranrandhawa20" target="_blank">LinkedIn</a>
+        <a href="https://github.com/sim-randhawa" target="_blank">GitHub</a>
+        <a href="mailto:simranka00ur@gmail.com">Email</a>
+      </div>
+    </div>
+  </nav>
 
-<div class="skills">
-  <h2>Skills</h2>
-  <div class="skill-tags">
-    <span>Python</span>
-    <span>R</span>
-    <span>SQL</span>
-    <span>pandas</span>
-    <span>seaborn</span>
-    <span>ggplot2</span>
-    <span>Seurat</span>
-    <span>scRNA-seq</span>
-    <span>Survival Analysis</span>
-    <span>Cox Regression</span>
-    <span>SQLite</span>
-    <span>Data Visualization</span>
-    <span>Bioinformatics</span>
-    <span>Clinical Data</span>
-    <span>GitHub</span>
-    <span>Jupyter</span>
+  <div class="hero">
+    <div class="hero-eyebrow">Data Analyst · Bioinformatician</div>
+    <h1>Building at the intersection<br>of biology and data.</h1>
+    <p class="hero-bio">MS student at <strong>Johns Hopkins Bloomberg School of Public Health</strong> researching pancreatic cancer tumor microenvironments using spatial transcriptomics and scRNA-seq. Previously contributed to publications in <strong>Science, Cancer Research, and Cell</strong> at University of Pittsburgh Immunology.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="mailto:simranka00ur@gmail.com" class="btn-secondary">Get in Touch</a>
+    </div>
   </div>
+
+  <div class="section">
+    <div class="section-label">Skills</div>
+    <div class="skills-row">
+      <span class="skill-chip">Python</span>
+      <span class="skill-chip">R</span>
+      <span class="skill-chip">SQL</span>
+      <span class="skill-chip">pandas</span>
+      <span class="skill-chip">seaborn</span>
+      <span class="skill-chip">matplotlib</span>
+      <span class="skill-chip">ggplot2</span>
+      <span class="skill-chip">Seurat</span>
+      <span class="skill-chip">scRNA-seq</span>
+      <span class="skill-chip">UMAP</span>
+      <span class="skill-chip">Survival Analysis</span>
+      <span class="skill-chip">Cox Regression</span>
+      <span class="skill-chip">SQLite</span>
+      <span class="skill-chip">Bioinformatics</span>
+      <span class="skill-chip">Clinical Data</span>
+      <span class="skill-chip">GitHub</span>
+      <span class="skill-chip">Jupyter</span>
+    </div>
+  </div>
+
+  <div class="section" id="projects">
+    <div class="section-label">Selected Projects</div>
+
+    <div class="project">
+      <div class="proj-meta">
+        <span class="proj-num">01</span>
+        <span class="proj-tool">R</span>
+        <span class="proj-tool">Seurat</span>
+        <span class="proj-tool">scRNA-seq</span>
+        <span class="proj-tool">UMAP</span>
+        <span class="proj-tool">Differential Expression</span>
+      </div>
+      <h3>scRNA-seq Analysis of the Pancreatic Cancer Tumor Microenvironment</h3>
+      <div class="proj-stats">
+        <div class="proj-stat"><div class="n">5</div><div class="l">PDAC patients</div></div>
+        <div class="proj-stat"><div class="n">7</div><div class="l">Cell types identified</div></div>
+        <div class="proj-stat"><div class="n">18</div><div class="l">Clusters annotated</div></div>
+      </div>
+      <p>Single-cell RNA-seq analysis of the PDAC tumor microenvironment using GEO dataset GSE155698. Performed QC, clustering, canonical marker annotation, and per-patient differential expression analysis in R using Seurat.</p>
+      <div class="plots-grid">
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/scrnaseq-pdac-tme-analysis/main/results/figures/03_annotated_umap.png" alt="Annotated UMAP" onerror="this.style.display='none'">
+          <div class="plot-caption">Annotated cell types — UMAP</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/scrnaseq-pdac-tme-analysis/main/results/figures/02_canonical_markers_dotplot.png" alt="Marker dot plot" onerror="this.style.display='none'">
+          <div class="plot-caption">Canonical TME marker expression</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/scrnaseq-pdac-tme-analysis/main/results/figures/04_patient_heterogeneity_volcanos.png" alt="Volcano plots" onerror="this.style.display='none'">
+          <div class="plot-caption">Patient tumor heterogeneity</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/scrnaseq-pdac-tme-analysis/main/results/figures/01_qc_before_filtering.png" alt="QC metrics" onerror="this.style.display='none'">
+          <div class="plot-caption">QC metrics before filtering</div>
+        </div>
+      </div>
+      <div class="proj-finding">
+        <p><strong>Key finding:</strong> Macrophages form the dominant immune population — consistent with PDAC's known immunosuppressive microenvironment. Inter-patient tumor heterogeneity confirmed via per-patient differential expression.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/sim-randhawa/scrnaseq-pdac-tme-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project">
+      <div class="proj-meta">
+        <span class="proj-num">02</span>
+        <span class="proj-tool">Python</span>
+        <span class="proj-tool">pandas</span>
+        <span class="proj-tool">R</span>
+        <span class="proj-tool">Survival Analysis</span>
+        <span class="proj-tool">Cox Regression</span>
+      </div>
+      <h3>TCGA-PAAD Clinical Survival Analysis</h3>
+      <div class="proj-stats">
+        <div class="proj-stat"><div class="n">185</div><div class="l">Patients</div></div>
+        <div class="proj-stat"><div class="n">18.7mo</div><div class="l">Median overall survival</div></div>
+        <div class="proj-stat"><div class="n">3</div><div class="l">Clinical files merged</div></div>
+      </div>
+      <p>Two-language pipeline: Python and pandas for cleaning and merging raw TCGA clinical files (handling 166,772 placeholder missing values), R for Kaplan-Meier survival curves and Cox proportional hazards modeling stratified by stage, gender, and age.</p>
+      <div class="plots-grid">
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/tcga-paad-survival-analysis/main/results/figures/03_overall_survival.png" alt="Overall survival" onerror="this.style.display='none'">
+          <div class="plot-caption">Overall survival — Kaplan-Meier</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/tcga-paad-survival-analysis/main/results/figures/04_survival_by_stage.png" alt="Survival by stage" onerror="this.style.display='none'">
+          <div class="plot-caption">Survival by AJCC stage</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/tcga-paad-survival-analysis/main/results/figures/06_cox_forest_plot.png" alt="Cox forest plot" onerror="this.style.display='none'">
+          <div class="plot-caption">Cox proportional hazards — forest plot</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/tcga-paad-survival-analysis/main/results/figures/01_clinical_eda.png" alt="Clinical EDA" onerror="this.style.display='none'">
+          <div class="plot-caption">Clinical data overview (Python/seaborn)</div>
+        </div>
+      </div>
+      <div class="proj-finding">
+        <p><strong>Key finding:</strong> Tumor stage is the primary prognostic variable. Gender and age show no independent survival effect after adjustment — consistent with existing PDAC literature.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/sim-randhawa/tcga-paad-survival-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+    <div class="project">
+      <div class="proj-meta">
+        <span class="proj-num">03</span>
+        <span class="proj-tool">Python</span>
+        <span class="proj-tool">SQL</span>
+        <span class="proj-tool">SQLite</span>
+        <span class="proj-tool">pandas</span>
+        <span class="proj-tool">seaborn</span>
+      </div>
+      <h3>CMS Medicare Provider Utilization — SQL & Python Analysis</h3>
+      <div class="proj-stats">
+        <div class="proj-stat"><div class="n">223K</div><div class="l">Billing records</div></div>
+        <div class="proj-stat"><div class="n">93</div><div class="l">Specialties analyzed</div></div>
+        <div class="proj-stat"><div class="n">$1,064</div><div class="l">Avg surgical payment</div></div>
+      </div>
+      <p>End-to-end pipeline from raw CMS public data to SQLite database to SQL queries to visualization. Analyzed Maryland Medicare billing patterns across 93 provider specialties using 2023 CMS data.</p>
+      <div class="plots-grid">
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/cms-medicare-sql-analysis/main/results/01_cms_analysis.png" alt="CMS overview" onerror="this.style.display='none'">
+          <div class="plot-caption">Specialty billing overview</div>
+        </div>
+        <div>
+          <img class="plot-img" src="https://raw.githubusercontent.com/sim-randhawa/cms-medicare-sql-analysis/main/results/02_payment_distribution.png" alt="Payment distribution" onerror="this.style.display='none'">
+          <div class="plot-caption">Payment distribution by specialty</div>
+        </div>
+      </div>
+      <div class="proj-finding">
+        <p><strong>Key finding:</strong> Facility-based services receive ~50% higher median payments than office-based. Hematology-Oncology leads total volume — consistent with Johns Hopkins concentration in Maryland.</p>
+      </div>
+      <a class="proj-link" href="https://github.com/sim-randhawa/cms-medicare-sql-analysis" target="_blank">View on GitHub →</a>
+    </div>
+
+  </div>
+
+  <div class="section">
+    <div class="section-label">Background</div>
+    <div class="about-grid">
+      <div class="about-item">
+        <h4>Education</h4>
+        <ul>
+          <li>MS, Johns Hopkins Bloomberg School of Public Health (in progress)</li>
+          <li>Research: spatial transcriptomics, PDAC tumor microenvironment</li>
+        </ul>
+      </div>
+      <div class="about-item">
+        <h4>Experience</h4>
+        <ul>
+          <li>University of Pittsburgh Immunology — publications in Science, Cancer Research, Cell</li>
+          <li>Computational analysis of clinical and biological datasets</li>
+        </ul>
+      </div>
+      <div class="about-item">
+        <h4>Targeting</h4>
+        <ul>
+          <li>Data analyst internships in biotech and health tech</li>
+          <li>Tempus, Flatiron, Guardant, Genentech, Optum</li>
+        </ul>
+      </div>
+      <div class="about-item">
+        <h4>Currently learning</h4>
+        <ul>
+          <li>Advanced SQL and database design</li>
+          <li>Machine learning for clinical data</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <p>Simran Randhawa · Johns Hopkins Bloomberg School of Public Health · simranka00ur@gmail.com</p>
+  </footer>
+
 </div>
-
-<div class="projects">
-  <h2>Projects</h2>
-
-  <div class="project-card">
-    <h3>scRNA-seq Analysis of Pancreatic Ductal Adenocarcinoma TME</h3>
-    <div class="tags">
-      <span>R</span><span>Seurat</span><span>scRNA-seq</span>
-      <span>UMAP</span><span>Differential Expression</span>
-    </div>
-    <p>Single-cell RNA-seq analysis of the PDAC tumor microenvironment using 
-    publicly available GEO data (GSE155698). Identified 7 major cell populations 
-    including tumor cells, macrophages, CAFs, and T cells using canonical marker 
-    expression. Performed per-patient differential expression analysis revealing 
-    transcriptional heterogeneity across PDAC tumors.</p>
-    <a href="https://github.com/sim-randhawa/scrnaseq-pdac-tme-analysis" target="_blank">View on GitHub →</a>
-  </div>
-
-  <div class="project-card">
-    <h3>TCGA-PAAD Survival Analysis & Cox Regression</h3>
-    <div class="tags">
-      <span>Python</span><span>pandas</span><span>R</span>
-      <span>Survival Analysis</span><span>Cox Regression</span>
-    </div>
-    <p>Clinical data analysis of 185 TCGA pancreatic cancer patients using a 
-    two-language pipeline: Python (pandas) for cleaning and merging 3 raw clinical 
-    files, R for Kaplan-Meier survival analysis and Cox proportional hazards 
-    modeling. Median overall survival 18.7 months; stage identified as the primary 
-    prognostic variable.</p>
-    <a href="https://github.com/sim-randhawa/tcga-paad-survival-analysis" target="_blank">View on GitHub →</a>
-  </div>
-
-  <div class="project-card">
-    <h3>CMS Medicare Provider Utilization — SQL & Python Analysis</h3>
-    <div class="tags">
-      <span>Python</span><span>SQL</span><span>SQLite</span>
-      <span>pandas</span><span>seaborn</span>
-    </div>
-    <p>End-to-end analysis of 223,406 Medicare provider billing records for Maryland 
-    using CMS public data. Built a SQLite database from raw CSV data and ran SQL 
-    queries to identify billing patterns by specialty, service type, and place of 
-    care. Ambulatory Surgical Centers averaged $1,064 per service — highest of any 
-    specialty.</p>
-    <a href="https://github.com/sim-randhawa/cms-medicare-sql-analysis" target="_blank">View on GitHub →</a>
-  </div>
-
-</div>
-
-<footer>
-  <p>Simran Randhawa · Johns Hopkins Bloomberg School of Public Health · 2025</p>
-</footer>
-
 </body>
 </html>
